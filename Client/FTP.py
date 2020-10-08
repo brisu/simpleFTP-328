@@ -50,6 +50,7 @@ while (True):
         # Continue until no more packages are sent
         while(byte):
             f.write(byte)
+            # Read in new byte for next write
             byte = sock.recv(1024)
             print("Receiving")
         print("Transfer done")
@@ -61,8 +62,10 @@ while (True):
         print("Connection closed")
         # take input before establishing new connection
         nHost = input("New host IP:")
+        nPort = input("New port:")
         print("Connection to new server")
-        sock.connect(nHost,PORT)
+        # establish new socket connect with new host and port
+        sock.connect(nHost,nPort)
 
     if data == "QUIT":
         break

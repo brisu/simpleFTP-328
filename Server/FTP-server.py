@@ -32,7 +32,7 @@ while (True):
         # exits receive once client has finished transmission
         print("Done transfer")
         conn.close()
-        
+
     if "GET" in data:
         print("Has GET")
         filename = conn.recv(1024).decode("utf-8")
@@ -51,7 +51,6 @@ while (True):
         f.close()
         print("Transfer complete")
         conn.close()
-
 
     if data == "QUIT":
         break
